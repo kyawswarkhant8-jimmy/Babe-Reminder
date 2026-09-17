@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="my">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Make it mobile friendly -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For My Babe ❤️</title>
+
+    <!-- Myanmar font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =========================
+           BASIC SETTINGS
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Noto Sans Myanmar", sans-serif;
+
+            min-height: 100vh;
+
+            background:
+                radial-gradient(circle at top, #fff7fa, transparent 40%),
+                linear-gradient(135deg, #ffe5ec, #fff1f5);
+
+            color: #4b2732;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+
+            margin: auto;
+
+            padding: 25px 0 50px;
+        }
+
+
+        /* =========================
+           PAGE SYSTEM
+        ========================= */
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* =========================
+           HOME PAGE
+        ========================= */
+
+        .home {
+            text-align: center;
+
+            padding-top: 35px;
+        }
+
+        .heart {
+            font-size: 70px;
+
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .home h1 {
+            margin-top: 15px;
+
+            font-size: 32px;
+
+            color: #d6336c;
+        }
+
+        .subtitle {
+            margin-top: 15px;
+
+            line-height: 2;
+
+            font-size: 16px;
+        }
+
+        .small-note {
+            margin-top: 10px;
+
+            font-size: 13px;
+
+            opacity: 0.65;
+        }
+
+
+        /* =========================
+           MENU
+        ========================= */
+
+        .menu {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 14px;
+
+            margin-top: 35px;
+        }
+
+        .menu-button {
+            width: 100%;
+
+            padding: 19px;
+
+            border: none;
+
+            border-radius: 18px;
+
+            background: rgba(255, 255, 255, 0.9);
+
+            color: #64283d;
+
+            font-family: inherit;
+
+            font-size: 17px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 25px rgba(100, 30, 50, 0.10);
+
+            transition: 0.25s;
+        }
+
+        .menu-button:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 30px rgba(100, 30, 50, 0.16);
+        }
+
+        .menu-button:active {
+            transform: scale(0.97);
+        }
+
+
+        /* =========================
+           PAGE TITLE
+        ========================= */
+
+        .page-title {
+            text-align: center;
+
+            color: #d6336c;
+
+            font-size: 27px;
+
+            margin-bottom: 25px;
+        }
+
+        .back-button {
+            border: none;
+
+            background: transparent;
+
+            color: #d6336c;
+
+            font-family: inherit;
+
+            font-size: 15px;
+
+            cursor: pointer;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================
+           PROGRESS
+        ========================= */
+
+        .progress-box {
+            background: rgba(255,255,255,0.7);
+
+            border-radius: 15px;
+
+            padding: 15px;
+
+            margin-bottom: 20px;
+
+            text-align: center;
+        }
+
+        .progress-text {
+            font-size: 14px;
+
+            margin-bottom: 8px;
+        }
+
+        .progress-bar {
+            width: 100%;
+
+            height: 9px;
+
+            background: #f4d5df;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+
+            width: 0%;
+
+            background: #d6336c;
+
+            border-radius: 20px;
+
+            transition: width 0.3s;
+        }
+
+
+        /* =========================
+           CHECKLIST
+        ========================= */
+
+        .item-list {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 12px;
+        }
+
+        .item {
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+
+            background: white;
+
+            padding: 16px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 5px 18px rgba(100, 30, 50, 0.08);
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .item:hover {
+            transform: translateX(3px);
+        }
+
+        .item input {
+            width: 21px;
+            height: 21px;
+
+            accent-color: #d6336c;
+
+            flex-shrink: 0;
+        }
+
+        .item span {
+            line-height: 1.7;
+
+            font-size: 15px;
+        }
+
+        .item.checked {
+            opacity: 0.55;
+        }
+
+        .item.checked span {
+            text-decoration: line-through;
+        }
+
+
+        /* =========================
+           IMPORTANT MESSAGE
+        ========================= */
+
+        .message-card {
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 8px 25px rgba(100, 30, 50, 0.10);
+
+            line-height: 2;
+
+            font-size: 16px;
+        }
+
+        .message-card p {
+            margin-bottom: 18px;
+        }
+
+        .warning-heart {
+            text-align: center;
+
+            font-size: 30px;
+
+            margin-top: 10px;
+        }
+
+
+        /* =========================
+           FINAL MESSAGE
+        ========================= */
+
+        .final {
+            text-align: center;
+
+            padding-top: 50px;
+        }
+
+        .final-heart {
+            font-size: 75px;
+
+            animation: heartbeat 1.5s infinite;
+        }
+
+        .final h2 {
+            margin-top: 20px;
+
+            color: #d6336c;
+
+            font-size: 29px;
+
+            line-height: 1.6;
+        }
+
+        .final p {
+            margin-top: 20px;
+
+            font-size: 18px;
+
+            line-height: 2;
+        }
+
+        .waiting {
+            font-size: 24px !important;
+
+            color: #d6336c;
+
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           QR SECTION
+        ========================= */
+
+        .qr-section {
+            margin-top: 45px;
+
+            padding: 25px;
+
+            background: rgba(255,255,255,0.75);
+
+            border-radius: 20px;
+        }
+
+        .qr-section h3 {
+            color: #d6336c;
+
+            margin-bottom: 10px;
+        }
+
+        .qr-section p {
+            font-size: 13px;
+
+            line-height: 1.8;
+        }
+
+        #qrcode {
+            display: flex;
+
+            justify-content: center;
+
+            margin-top: 18px;
+        }
+
+        .qr-warning {
+            margin-top: 15px;
+
+            font-size: 12px;
+
+            opacity: 0.6;
+        }
+
+
+        /* =========================
+           LOVE FOOTER
+        ========================= */
+
+        .footer {
+            text-align: center;
+
+            margin-top: 35px;
+
+            font-size: 13px;
+
+            opacity: 0.55;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- =================================================
+         HOME
+    ================================================== -->
+
+    <section id="home" class="page active home">
+
+        <div class="heart">
+            ❤️
+        </div>
+
+        <h1>
+            Babe, Don't Forget
+        </h1>
+
+        <p class="subtitle">
+
+            မြန်မာကနေ Japan ကိုလာဖို့<br>
+
+            ပြင်ဆင်တဲ့အချိန်မှာ<br>
+
+            ဘာမှမမေ့အောင် ကိုယ်ရေးထားပေးတယ် ❤️
+
+        </p>
+
+        <p class="small-note">
+            အကုန်သေချာစစ်ပြီးမှ ထွက်လာနော်။
+        </p>
+
+
+        <!-- MENU -->
+
+        <div class="menu">
+
+            <button
+                class="menu-button"
+                onclick="showPage('items')">
+
+                🧳 ယူရန် ပစ္စည်းများ
+
+            </button>
+
+
+            <button
+                class="menu-button"
+                onclick="showPage('documents')">
+
+                📄 စာရွက်စာတမ်းများ
+
+            </button>
+
+
+            <button
+                class="menu-button"
+                onclick="showPage('important')">
+
+                ❤️ အရေးကြီးတဲ့စကား
+
+            </button>
+
+
+            <button
+                class="menu-button"
+                onclick="showPage('final')">
+
+                💌 နောက်ဆုံးတစ်ခုပဲ...
+
+            </button>
+
+        </div>
+
+
+        <!-- QR -->
+
+        <div class="qr-section">
+
+            <h3>
+                📱 Babe အတွက် QR Code
+            </h3>
+
+            <p>
+                ဒီ QR Code ကို scan လုပ်ရင်
+                ဒီ reminder page ကိုဖွင့်လို့ရတယ် ❤️
+            </p>
+
+            <div id="qrcode"></div>
+
+            <p class="qr-warning">
+                Website online တင်ပြီးမှ ဒီ QR Code ကို
+                print ထုတ်ပြီး ပေးလို့ရမယ်။
+            </p>
+
+        </div>
+
+
+        <div class="footer">
+            Made with ❤️ for my babe
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         ITEMS
+    ================================================== -->
+
+    <section id="items" class="page">
+
+        <button
+            class="back-button"
+            onclick="showPage('home')">
+
+            ← နောက်သို့
+
+        </button>
+
+
+        <h2 class="page-title">
+            🧳 ယူရန် ပစ္စည်းများ
+        </h2>
+
+
+        <!-- PROGRESS -->
+
+        <div class="progress-box">
+
+            <div class="progress-text">
+                ပြင်ဆင်ပြီးတာ —
+                <span id="itemsProgress">0 / 6</span>
+            </div>
+
+            <div class="progress-bar">
+
+                <div
+                    id="itemsBar"
+                    class="progress">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="item-list">
+
+
+            <label class="item">
+
+                <input
+                    type="checkbox"
+                    data-group="items">
+
+                <span>
+                    🧦 ခြေအိတ်
+                </span>
+
+            </label>
+
+
+            <label class="item">
+
+                <input
+                    type="checkbox"
+                    data-group="items">
+
+                <span>
+                    🧥 အနွေးထည်
+                </span>
+
+            </label>
+
+
+            <label class="item">
+
+                <input
+                    type="checkbox"
+                    data-group="items">
+
+                <span>
+                    💊 ဆေး
+                </span>
+
+            </label>
+
+
+            <label class="item">
+
+                <input
+                    type="checkbox"
+                    data-group="items">
+
+                <span>
+                    💊 လိမ်းဆေး / သောက်ဆေး
+                </span>
+
+            </label>
+
+
+            <label class="item">
+
+                <input
+                    type="checkbox"
+                    data-group="items">
+
+                <span>
+                    🍱 စားစရာ
+                </span>
+
+            </label>
+
+
+            <label class="item">
+
+                <input
+                    type="checkbox"
+                    data-group="items">
+
+                <span>
+                    🧴 Skincare
+                </span>
+
+            </label>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         DOCUMENTS
+    ================================================== -->
+
+    <section id="documents" class="page">
+
+        <button
+            class="back-button"
+            onclick="showPage('home')">
+
+            ← နောက်သို့
+
+        </button>
+
+
+        <h2 class="page-title">
+            📄 စာရွက်စာတမ်းများ
+        </h2>
+
+
+        <div class="progress-box">
+
+            <div class="progress-text">
+                ပြင်ဆင်ပြီးတာ —
+                <span id="documentsProgress">0 / 6</span>
+            </div>
+
+            <div class="progress-bar">
+
+                <div
+                    id="documentsBar"
+                    class="progress">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="item-list">
+
+
+            <label class="item">
+
+                <input
+                    type="checkbox"
+                    data-group="documents">
+
+                <span>
+                    🛂 Passport
+                </span>
+
+            </label>
+
+
+            <label class="item">
+
+                <input
+                    type="checkbox"
+                    data-group="documents">
+
+                <span>
+                    ✈️ လေယာဉ်လက်မှတ်
+                </span>
+
+            </label>
+
+
+            <label class="item">
+
+                <input
+                    type="checkbox"
+                    data-group="documents">
+
+                <span>
+                    📸 မှတ်ပုံတင်ဆိုဒ်ဓာတ်ပုံနဲ့
+                    အဲ့ထက် နဲနဲကြီးတဲ့ပုံ
+                    များများသာယူခဲ့
+                </span>
+
+            </label>
+
+
+            <label class="item">
+
+                <input
+                    type="checkbox"
+                    data-group="documents">
+
+                <span>
+                    📑 Certificate တွေ
+                    Print ထုတ်ခဲ့
+                </span>
+
+            </label>
+
+
+            <label class="item">
+
+                <input
+                    type="checkbox"
+                    data-group="documents">
+
+                <span>
+                    📷 Passport size photo
+                </span>
+
+            </label>
+
+
+            <label class="item">
+
+                <input
+                    type="checkbox"
+                    data-group="documents">
+
+                <span>
+                    📱 ဖုန်းထဲက contact တွေ၊
+                    info တွေ အကုန်ထည့်ခဲ့
+                </span>
+
+            </label>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         IMPORTANT MESSAGE
+    ================================================== -->
+
+    <section id="important" class="page">
+
+        <button
+            class="back-button"
+            onclick="showPage('home')">
+
+            ← နောက်သို့
+
+        </button>
+
+
+        <h2 class="page-title">
+            ❤️ အရေးကြီးတဲ့စကား
+        </h2>
+
+
+        <div class="message-card">
+
+
+            <p>
+                အခုချိန်မှာ အစစအရာရာဂရုစိုက်။
+                စားတာသောက်တာ၊ နေတာထိုင်တာ၊
+                သွားတာလာတာ အကုန်ဂရုစိုက်ပါ။
+            </p>
+
+
+            <p>
+                မလိုအပ်ပဲ အပြင်မထွက်နဲ့။
+                ခများအိမ်က လွှတ်လဲ
+                ကိုမလွှတ်ဘူး။
+            </p>
+
+
+            <p>
+                ဘုရားတရားလုပ်ပါ။
+            </p>
+
+
+            <p>
+                ကိုသွားရမဲ့လမ်းက ဝေးတယ်။
+                အဲ့တော့ ဘုရားတရားလုပ်ပါ။
+                မပျင်းပါနဲ့။
+            </p>
+
+
+            <p>
+                အနားနီးမှ ဝတ်ကျေတန်းကျေ
+                ရှိခိုးတာမလုပ်ပါနဲ့။
+            </p>
+
+
+            <div class="warning-heart">
+                ❤️
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         FINAL MESSAGE
+    ================================================== -->
+
+    <section id="final" class="page final">
+
+        <button
+            class="back-button"
+            onclick="showPage('home')">
+
+            ← နောက်သို့
+
+        </button>
+
+
+        <div class="final-heart">
+            ❤️
+        </div>
+
+
+        <h2>
+            I love you so much, babe.
+        </h2>
+
+
+        <p>
+            အကုန်သေချာပြင်ဆင်ပြီး<br>
+            ဘာမှမမေ့ဘဲ လာခဲ့နော်။
+        </p>
+
+
+        <p class="waiting">
+            I am waiting for you. ❤️
+        </p>
+
+
+        <p>
+            See you soon, babe. 🫶
+        </p>
+
+
+        <div class="final-heart">
+            💗
+        </div>
+
+    </section>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     QR CODE LIBRARY
+====================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+
+
+<script>
+
+    /* =================================================
+       PAGE NAVIGATION
+    ================================================= */
+
+    function showPage(pageId) {
+
+        // Get all pages
+        const pages = document.querySelectorAll(".page");
+
+        // Hide every page
+        pages.forEach(function(page) {
+
+            page.classList.remove("active");
+
+        });
+
+        // Show selected page
+        document
+            .getElementById(pageId)
+            .classList.add("active");
+
+        // Move screen to top
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+
+
+    /* =================================================
+       CHECKLIST
+    ================================================= */
+
+    const checkboxes =
+        document.querySelectorAll(
+            'input[type="checkbox"]'
+        );
+
+
+    checkboxes.forEach(function(checkbox, index) {
+
+        // Load previous checkbox state
+        const saved =
+            localStorage.getItem(
+                "checkbox-" + index
+            );
+
+        if (saved === "true") {
+
+            checkbox.checked = true;
+
+            checkbox.parentElement
+                .classList.add("checked");
+
+        }
+
+
+        // When checkbox changes
+        checkbox.addEventListener(
+            "change",
+            function() {
+
+                // Save state
+                localStorage.setItem(
+                    "checkbox-" + index,
+                    this.checked
+                );
+
+
+                // Add/remove checked style
+                if (this.checked) {
+
+                    this.parentElement
+                        .classList.add("checked");
+
+                } else {
+
+                    this.parentElement
+                        .classList.remove("checked");
+
+                }
+
+
+                // Update progress
+                updateProgress(
+                    this.dataset.group
+                );
+
+            }
+
+        );
+
+    });
+
+
+
+    /* =================================================
+       PROGRESS
+    ================================================= */
+
+    function updateProgress(group) {
+
+        const boxes =
+            document.querySelectorAll(
+                'input[data-group="' + group + '"]'
+            );
+
+
+        let completed = 0;
+
+
+        boxes.forEach(function(box) {
+
+            if (box.checked) {
+
+                completed++;
+
+            }
+
+        });
+
+
+        const total = boxes.length;
+
+
+        const percentage =
+            (completed / total) * 100;
+
+
+        if (group === "items") {
+
+            document.getElementById(
+                "itemsProgress"
+            ).textContent =
+                completed + " / " + total;
+
+
+            document.getElementById(
+                "itemsBar"
+            ).style.width =
+                percentage + "%";
+
+        }
+
+
+        if (group === "documents") {
+
+            document.getElementById(
+                "documentsProgress"
+            ).textContent =
+                completed + " / " + total;
+
+
+            document.getElementById(
+                "documentsBar"
+            ).style.width =
+                percentage + "%";
+
+        }
+
+    }
+
+
+
+    /* =================================================
+       LOAD PROGRESS WHEN WEBSITE OPENS
+    ================================================= */
+
+    updateProgress("items");
+
+    updateProgress("documents");
+
+
+
+    /* =================================================
+       QR CODE
+    ================================================= */
+
+    /*
+       IMPORTANT:
+
+       Right now this uses the current page URL.
+
+       When you upload the website to the internet,
+       this automatically becomes your website address.
+
+       Example:
+
+       https://yourname.github.io/babe-reminder/
+    */
+
+
+    new QRCode(
+
+        document.getElementById("qrcode"),
+
+        {
+            text: window.location.href,
+
+            width: 180,
+
+            height: 180,
+
+            colorDark: "#d6336c",
+
+            colorLight: "#ffffff",
+
+            correctLevel:
+                QRCode.CorrectLevel.H
+        }
+
+    );
+
+</script>
+
+
+</body>
+
+</html>
